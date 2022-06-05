@@ -11,8 +11,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = env::args().collect();
 
     if args.len() != 3 {
-        println!("args.len() should equal 3: 'sha1_cracker' <word_list.txt> <sha1>");
-        Ok(())
+        println!();
+        Err(format!("args.len() should equal 3: 'sha1_cracker' <word_list.txt> <sha1>. Current {:?}", args).into())
     } else {
         println!("Args are valid: {:?}", args);
         let hash_to_crack = args[2].trim();
